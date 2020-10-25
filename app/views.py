@@ -10,4 +10,11 @@ def index():
     '''
 
     title = 'Home - Welcome to Pitches'
-    return render_template('index.html', title = title)
+
+    # Getting reviews by category
+    interview_pitches = get_pitches('interview')
+    product_pitches = get_pitches('product')
+    promotion_pitches = get_pitches('promotion')
+
+
+    return render_template('index.html',title = title, interview = interview_piches, product = product_piches, promotion = promotion_pitches)

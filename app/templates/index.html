@@ -1,14 +1,43 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to Pitches </title>
-        {% endif %}
-    </head>
-    <body>
+{% import 'macros.html' as macro %}
+<!-- Styles block -->
 
-    </body>
-</html>
+<!-- Content block -->
+<body>
+    <div class="page-header">
+        <div class="common-header">
+            <h1>Welcome To Pitches</h>
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="well well-lg" style="text-align: center;">
+                    <h3>Interviews Pitches</h3>
+                    <hr>
+                    <p>Far and away the best prize that life offers
+                        is the chance to work hard at work worth doing.</p>
+                        <P>The most valuable of all talents is that of never using two words when one will do</P>
+                        <button type="button">Click to View</button>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align: center;">
+                <div class="well well-lg">
+                    <h3>Products Pitches</h3>
+                    <hr>
+                    <p>You’ve got to start with the customer experience and work back toward the technology – not the other way around.</p>
+                    <p>When the product is right, you don’t have to be a great Marketer.</p>
+                    <button type="button">Click to View</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well well-lg" style="text-align: center;">
+                    <h3>Promotion Pitches</h3>
+                    <hr>
+                    <p>If opportunity doesn’t knock, build a door.</p>
+                    <p>A successful career will no longer be about promotion. It will be about mastery.</p>
+                    <button type="button">Click to View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>

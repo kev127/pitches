@@ -1,6 +1,6 @@
 import unittest
 from models import pitch
-Pitch = pitch.Pitch
+
 
 class PitchTest(unittest.TestCase):
     '''

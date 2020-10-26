@@ -1,9 +1,11 @@
 {% macro displayPitches(pitches_list)%}
     {%for pitch in pitches_list%}
-        <div class=row>
-            <h4>{{pitch.pitch_title}}</h4>
-            <p>{{pitch.pitch_content| truncate(100)}}</p>
-            <p>Written by:{{pitch.user.username}} <a href="/pitch/{{pitch.id}}" class="btn btn-primary center">Read</a> </p>
+        <div class="row">
+            <div class="col-md-4 ">
+                <h4>{{pitch.pitch_title}}</h4>
+                <p>{{pitch.pitch_content| truncate(100)}}</p>
+                <p>Written by:{{pitch.user.username}} <a href="/pitch/{{pitch.id}}" class="btn btn-primary center">Read</a> </p>
+            </div>
         </div>
     {%endfor%}
 {%endmacro%}

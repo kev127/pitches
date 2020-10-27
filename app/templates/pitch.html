@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        <h3>{{pitch.pitch_title}}</h3>
+        <div class="container">
+            <p>{{pitch.pitch_content}}</p>
+            <p>Posted on {{date}}</p>
+            <a href="/pitch/{{pitch.id}}?like=1">
+                <i class="fas fa-plus"></i>
+            </a>{{pitch.likes}} <a href="/pitch/{{pitch.id}}?dislike=1">
+                <i class="fas fa-minus"></i>
+            </a>{{pitch.dislikes}}
+        </div>
+
+    </div>

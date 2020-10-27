@@ -2,6 +2,7 @@ from flask import render_template
 from app import app
 from .request import get_pitches
 from .forms import PitchForm
+from models import pitch
 
 
 # Views
@@ -22,17 +23,19 @@ def index():
 
     return render_template('index.html',title = title, interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
 
-@app.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
-def new_review(id):
-    form = ReviewForm()
-    movie = get_movie(id)
+@app.route('/pitch/new', methods = ['GET','POST'])
+def newPitch():
+    pitch = PitchForm()
+    if pitch.validate_on_submit():
+        pitch_title = pitch.pitch_title.data
+        category_name = pitch.category_name.data
+        text= pitch.text.data
 
-    if form.validate_on_submit():
-        title = form.title.data
-        review = form.review.data
-        new_review = Review(movie.id,title,movie.poster,review)
-        new_review.save_review()
-        return redirect(url_for('movie',id = movie.id ))
+        #update pitch instance
+        newPitch = Pitch(title = pitch_title,category_name =category_name,content =text,user= current_user )
 
-    title = f'{movie.title} review'
-    return render_template('new_review.html',title = title, review_form=form, movie=movie)
+        #save pitch
+        newPitch.save_pitch()
+        return redirect(url_for('.index'))
+    title = 'NEW PITCH'
+    return render_template('new_pitch.html',title = title, new_pitch = pitch)

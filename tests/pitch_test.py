@@ -1,5 +1,5 @@
 import unittest
-from models import pitch
+from app.models import Pitch
 
 
 class PitchTest(unittest.TestCase):

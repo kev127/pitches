@@ -21,6 +21,7 @@ def index():
     promotion_pitches = get_pitches('promotion')
 
 
+
     return render_template('index.html',title = title, interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
 
 @app.route('/pitch/new', methods = ['GET','POST'])
@@ -39,3 +40,19 @@ def newPitch():
         return redirect(url_for('.index'))
     title = 'NEW PITCH'
     return render_template('new_pitch.html',title = title, new_pitch = pitch)
+
+@app.route('/category/interview', methods=['POST','GET'])
+def interview_pitches():
+    pitches = get_pitches('interview')
+    return render_template('category/interview_pitches.html',pitches = pitches)
+
+@app.route('/category/products', methods=['POST','GET'])
+def products_pitches():
+    pitches = get_pitches('products')
+    return render_template('category/products_pitches.html',pitches = pitches)
+
+@app.route('/category/promotion', methods=['POST','GET'])
+def promotion_pitches():
+    pitches = get_pitches('promotion')
+    return render_template('category/promotion_pitches.html',pitches = pitches)
+

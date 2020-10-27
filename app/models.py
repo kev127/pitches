@@ -1,20 +1,8 @@
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin
 
-class Pitch:
-    '''
-    Pitch class to define Pitch Objects
-    '''
-
-    def __init__(self,id,title,content,category,likes,dislikes):
-        self.id =id
-        self.title = title
-        self.content = content
-        self.category = category 
-        self.likes = likes 
-        self.dislikes = dislikes
-
-class User(db.Model):
+class User(UserMixin,db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer,primary_key = True)
@@ -43,7 +31,7 @@ class User(db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
-        
+
 class Role(db.Model):
     __tablename__ = 'roles'
 

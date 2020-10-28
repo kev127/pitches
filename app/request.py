@@ -1,4 +1,4 @@
-from .models import pitch
+from .models import User
 
 def get_pitches(category):
     '''

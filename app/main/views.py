@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for
 from . import main
 from ..request import get_pitches
 from .forms import PitchForm
-from ..models import Pitch
+from ..models import User
 from flask_login import login_required
 
 

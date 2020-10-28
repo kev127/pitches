@@ -1,4 +1,4 @@
-from .models import Pitch
+from .models import pitch
 
 def get_pitches(category):
     '''

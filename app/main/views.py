@@ -1,5 +1,5 @@
 
-from flask import render_template,request,redirect,url_for
+from flask import render_template,request,redirect,url_for,abort
 from . import main
 from ..request import get_pitches
 from .forms import PitchForm
@@ -25,6 +25,15 @@ def index():
 
 
     return render_template('index.html',title = title, interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
 
 @main.route('/pitch/new', methods = ['GET','POST'])
 def newPitch():

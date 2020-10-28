@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to pitches 
+We have just seen you have signed up for our application and you will be able to pitch a quote.
